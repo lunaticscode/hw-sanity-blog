@@ -1,0 +1,7 @@
+.#{$appNavCls}-wrapper {
+  display: inline-block;
+  .#{$appNavCls}-menu {
+    cursor: pointer;
+    display: inline-block;
+  }
+}
