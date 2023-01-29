@@ -1,4 +1,5 @@
-import { NextPage } from "next";
+import withGetServerSideProps from "@/hocs/withGetServerSideProps";
+import { GetServerSideProps, NextPage } from "next";
 import { useRouter } from "next/router";
 
 const PostItemPage: NextPage = () => {
@@ -8,3 +9,14 @@ const PostItemPage: NextPage = () => {
 };
 
 export default PostItemPage;
+
+export const getServerSideProps: GetServerSideProps = withGetServerSideProps(
+  async (context) => {
+    return {
+      props: {
+        seoTitle: "post-title",
+        seoDesc: "post-desc",
+      },
+    };
+  }
+);
