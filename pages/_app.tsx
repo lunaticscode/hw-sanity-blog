@@ -6,6 +6,7 @@ import { Suspense, useMemo } from "react";
 import { ErrorBoundary } from "react-error-boundary";
 import "styles/index.scss";
 import { useRouter } from "next/router";
+import { RecoilRoot } from "recoil";
 
 interface PageSeoProps {
   seoTitle?: string;
@@ -20,13 +21,15 @@ export default function App({ Component, pageProps }: AppProps<PageSeoProps>) {
     [router.asPath]
   );
   return (
-    <ErrorBoundary FallbackComponent={AppError}>
-      <Suspense fallback={<div>loading....</div>}>
-        {isPostItemPage && <AppCustomHead {...pageProps} />}
-        <AppLayout>
-          <Component {...pageProps} />
-        </AppLayout>
-      </Suspense>
-    </ErrorBoundary>
+    <RecoilRoot>
+      <ErrorBoundary FallbackComponent={AppError}>
+        <Suspense fallback={<div>loading....</div>}>
+          {isPostItemPage && <AppCustomHead {...pageProps} />}
+          <AppLayout>
+            <Component {...pageProps} />
+          </AppLayout>
+        </Suspense>
+      </ErrorBoundary>
+    </RecoilRoot>
   );
 }

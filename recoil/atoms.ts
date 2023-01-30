@@ -5,6 +5,6 @@ const { persistAtom } = recoilPersist();
 
 export const layoutStatusAtom = atom<LayoutStatusAtomProps>({
   key: "layoutStatusAtom",
-  default: { selectedNavMenu: undefined },
+  default: { selectedNavMenu: undefined, theme: "light" },
   effects_UNSTABLE: [persistAtom],
 });

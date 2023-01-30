@@ -5,4 +5,9 @@
   @media screen and (min-width: 451px) {
     @include app-header-style(desktop);
   }
+  display: flex;
+  justify-content: space-between;
+
+  .#{$appHeaderCls}-toggle-wrapper {
+  }
 }
