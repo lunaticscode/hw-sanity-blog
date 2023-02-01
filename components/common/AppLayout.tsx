@@ -2,7 +2,7 @@ import { layoutStatusAtom } from "@/recoil/atoms";
 import { LayoutStatusAtomProps } from "@/_types/atomTypes";
 import { useRouter } from "next/router";
 import { FC, ReactNode, useEffect, useMemo, useState } from "react";
-import { useRecoilValue } from "recoil";
+import { useRecoilState, useRecoilValue } from "recoil";
 import AppHeader from "./AppHeader";
 import AppLoading from "./AppLoading";
 
@@ -21,7 +21,8 @@ const mainCls = {
 
 const AppLayout: FC<AppLayoutProps> = (props) => {
   const [isRouteLoading, setIsRouteLoading] = useState<boolean>(false);
-  const { theme } = useRecoilValue<LayoutStatusAtomProps>(layoutStatusAtom);
+  const [{ theme }, setLayoutStatus] =
+    useRecoilState<LayoutStatusAtomProps>(layoutStatusAtom);
   const { children } = props;
 
   const router = useRouter();
@@ -41,6 +42,11 @@ const AppLayout: FC<AppLayoutProps> = (props) => {
     () => `${layoutCls.wrapper}--theme-${theme}`,
     [theme]
   );
+
+  useEffect(() => {
+    document.documentElement.setAttribute("app-theme", theme || "light");
+  }, [theme]);
+
   return (
     <div className={layoutWrapperCls}>
       <AppHeader />

@@ -1,18 +1,22 @@
 import AppError from "@/components/common/AppError";
 import AppCustomHead from "@/components/common/AppCustomHead";
-import AppLayout from "@/components/common/AppLayout";
 import type { AppProps } from "next/app";
-import { Suspense, useMemo } from "react";
+import { Suspense, useEffect, useMemo } from "react";
 import { ErrorBoundary } from "react-error-boundary";
 import "styles/index.scss";
 import { useRouter } from "next/router";
 import { RecoilRoot } from "recoil";
+import dynamic from "next/dynamic";
 
 interface PageSeoProps {
   seoTitle?: string;
   seoDesc?: string;
   seoKeywords?: Array<string>;
 }
+
+const AppLayout = dynamic(() => import("../components/common/AppLayout"), {
+  ssr: false,
+});
 
 export default function App({ Component, pageProps }: AppProps<PageSeoProps>) {
   const router = useRouter();

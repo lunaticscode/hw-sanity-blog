@@ -5,6 +5,7 @@ const withGetServerSideProps = (getServerSideProps: GetServerSideProps) => {
     try {
       return await getServerSideProps(context).then(
         (res: { [key: string]: any }) => {
+          console.log({ res });
           return {
             ...res,
             props: {

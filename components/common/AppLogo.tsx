@@ -13,6 +13,7 @@ const AppLogo: FC = () => {
         height={50}
         alt="HW"
         placeholder="blur"
+        style={{ width: "auto", height: "auto" }}
       />
     </div>
   );

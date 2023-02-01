@@ -1,0 +1,15 @@
+@import "./variables";
+
+html[app-theme="light"] {
+  --font-color: #{$appLightFontColor};
+  --back-color: #{$appLightBackColor};
+  --header-border-color: #{$appDarkHeaderBorderColor};
+  //   --header-back-color
+}
+
+html[app-theme="dark"] {
+  --font-color: #{$appDarkFontColor};
+  --back-color: #{$appDarkBackColor};
+  --header-border-color: #{$appLightHeaderBorderColor};
+  //   --header-back-color
+}

@@ -5,3 +5,9 @@
 }
 @import "./common/index.scss";
 @import "./components/index.scss";
+
+html,
+body {
+  background-color: var(--back-color) !important;
+  color: var(--font-color) !important;
+}
