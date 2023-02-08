@@ -1,15 +1,15 @@
 .#{$appLayoutCls}-wrapper {
   &--theme {
     &-dark {
-      :root {
-        --app-font-color: white;
-      }
+      // :root {
+      //   --app-font-color: white;
+      // }
     }
     &-light {
       // color: white !important;
-      :root {
-        --app-font-color: black;
-      }
+      // :root {
+      //   --app-font-color: black;
+      // }
     }
   }
 }

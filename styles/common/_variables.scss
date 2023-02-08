@@ -6,6 +6,9 @@ $appLogoCls: app-logo;
 $appNavCls: app-nav;
 //main
 $appMainCls: app-main;
+//post
+$postLayoutCls: post-layout;
+$postItemCls: post-item;
 
 //font-color
 $appDarkFontColor: #ffffff;
@@ -14,6 +17,10 @@ $appLightFontColor: #1e1e1e;
 //back-color
 $appDarkBackColor: #1e1e1e;
 $appLightBackColor: #ffffff;
+
+//content-back-color
+$appContentDarkBackColor: #353535;
+$appContentLightBackColor: #f8f8f8;
 
 $appDarkHeaderBorderColor: black;
 $appLightHeaderBorderColor: gray;

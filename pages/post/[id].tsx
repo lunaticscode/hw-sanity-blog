@@ -1,11 +1,18 @@
+import PostItem from "@/components/page/post/PostItem";
 import withGetServerSideProps from "@/hocs/withGetServerSideProps";
 import { GetServerSideProps, NextPage } from "next";
 import { useRouter } from "next/router";
 
+const prefixCls = "post-layout";
+
 const PostItemPage: NextPage = () => {
   const router = useRouter();
   const { id: postId } = router.query;
-  return <>{postId}</>;
+  return (
+    <div className={`${prefixCls}-wrapper`}>
+      <PostItem title={"title"} body={"body"} />
+    </div>
+  );
 };
 
 export default PostItemPage;

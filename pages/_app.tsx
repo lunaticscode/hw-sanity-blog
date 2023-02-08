@@ -1,9 +1,9 @@
+import "styles/index.scss";
 import AppError from "@/components/common/AppError";
 import AppCustomHead from "@/components/common/AppCustomHead";
 import type { AppProps } from "next/app";
-import { Suspense, useEffect, useMemo } from "react";
+import { Suspense, useMemo } from "react";
 import { ErrorBoundary } from "react-error-boundary";
-import "styles/index.scss";
 import { useRouter } from "next/router";
 import { RecoilRoot } from "recoil";
 import dynamic from "next/dynamic";

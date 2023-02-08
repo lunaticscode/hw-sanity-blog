@@ -1,9 +1,9 @@
-import React, { ChangeEvent, FC, useEffect } from "react";
+import React, { ChangeEvent, FC } from "react";
 import AppLogo from "./AppLogo";
 import AppNav from "./AppNav";
 import Toggle from "react-toggle";
 import ToggleInternalIcon from "../icon/ToggleInternalIcon";
-import { useRecoilState, useSetRecoilState } from "recoil";
+import { useRecoilState } from "recoil";
 import { layoutStatusAtom } from "@/recoil/atoms";
 import { LayoutStatusAtomProps } from "@/_types/atomTypes";
 
@@ -19,9 +19,7 @@ const AppHeader: FC = () => {
     const theme = e.target.checked ? "dark" : "light";
     setLayoutStatus((prev) => ({ ...prev, theme }));
   };
-  useEffect(() => {
-    console.log({ theme });
-  }, [theme]);
+
   return (
     <header className={headerCls.wrapper}>
       <AppLogo />

@@ -3,13 +3,13 @@
 html[app-theme="light"] {
   --font-color: #{$appLightFontColor};
   --back-color: #{$appLightBackColor};
+  --content-back-color: #{$appContentLightBackColor};
   --header-border-color: #{$appDarkHeaderBorderColor};
-  //   --header-back-color
 }
 
 html[app-theme="dark"] {
   --font-color: #{$appDarkFontColor};
   --back-color: #{$appDarkBackColor};
+  --content-back-color: #{$appContentDarkBackColor};
   --header-border-color: #{$appLightHeaderBorderColor};
-  //   --header-back-color
 }

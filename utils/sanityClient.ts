@@ -1,9 +1,8 @@
 import getConfig from "next/config";
 import SanityClient from "@sanity/client";
-
 const { publicRuntimeConfig } = getConfig();
 
-const santiyClient = new SanityClient({
+export const santiyClient = new SanityClient({
   apiVersion: "2021-10-21",
   dataset: "production",
   projectId: "dcrtcxxm",
@@ -11,18 +10,33 @@ const santiyClient = new SanityClient({
   token: process.env.SANITY_TOKEN,
 });
 
+const getPostAllCntQuery = `
+  count([type == "post"])
+`;
+
+const getLatestContentQuery = `
+  *[_type == "post"] | order(_createdAt)[0..9]
+`;
+
+const getAllContentQuery = `
+*[_type == 'post'] {
+    title,
+    body,
+    _createdAt,
+    _updatedAt,
+    _id,
+    mainImage,
+}
+`;
+
 export const getAllContent = async () => {
-  console.log(publicRuntimeConfig.SANITY_TOKEN);
-  return await santiyClient.fetch(
-    `
-        *[_type == 'post'] {
-            title,
-            body,
-            _createdAt,
-            _updatedAt,
-            _id,
-            mainImage,
-        }
-    `
-  );
+  return await santiyClient.fetch(getAllContentQuery);
+};
+
+export const getLatestContent = async () => {
+  return await santiyClient.fetch(getLatestContentQuery);
+};
+
+export const getPostAllCnt = async () => {
+  return await santiyClient.fetch(getPostAllCntQuery);
 };
