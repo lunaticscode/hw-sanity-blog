@@ -10,33 +10,42 @@ export const santiyClient = new SanityClient({
   token: process.env.SANITY_TOKEN,
 });
 
-const getPostAllCntQuery = `
-  count([type == "post"])
-`;
+const getPostAllCntQuery = `count(*[_type == "post"])`;
 
 const getLatestContentQuery = `
   *[_type == "post"] | order(_createdAt)[0..9]
 `;
-
-const getAllContentQuery = `
-*[_type == 'post'] {
-    title,
+/**
+ * 
+     title,
     body,
     _createdAt,
     _updatedAt,
     _id,
-    mainImage,
-}
+    "mainImageUrl": mainImage.asset->url
+ */
+const getPostListQuery = (page: number, devider: number = 10) => `
+*[_type == 'post'] | order(_createdAt desc) {
+    title,
+    _createdAt,
+    _id,
+    "mainImageUrl": mainImage.asset->url
+}[${devider * (page - 1)}...${devider * (page - 1) + devider}]
 `;
 
-export const getAllContent = async () => {
-  return await santiyClient.fetch(getAllContentQuery);
+const getContentByIdQuery = (id: string) => `*[_id == '${id}']`;
+
+export const QUERY = {
+  GET_POST_ALL_CNT: getPostAllCntQuery,
+  GET_LATEST_CONTENT: getLatestContentQuery,
+  GET_POST_LIST: (page: number) => getPostListQuery(page),
+  GET_CONTENT_BY_ID: (id: string) => getContentByIdQuery(id),
 };
 
-export const getLatestContent = async () => {
-  return await santiyClient.fetch(getLatestContentQuery);
-};
-
-export const getPostAllCnt = async () => {
-  return await santiyClient.fetch(getPostAllCntQuery);
+// santiyClient.fetch
+export const scFetch = async (query: string) => {
+  return await santiyClient.fetch(query).catch((err) => {
+    console.log({ err });
+    return null;
+  });
 };

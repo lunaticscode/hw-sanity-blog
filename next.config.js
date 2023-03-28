@@ -4,6 +4,9 @@ const nextConfig = {
   publicRuntimeConfig: {
     SANITY_TOKEN: process.env.SANITY_TOKEN,
   },
+  images: {
+    domains: ["cdn.sanity.io"],
+  },
   async redirects() {
     return [
       {

@@ -18,7 +18,10 @@ const AppLayout = dynamic(() => import("../components/common/AppLayout"), {
   ssr: false,
 });
 
-export default function App({ Component, pageProps }: AppProps<PageSeoProps>) {
+export default function App({
+  Component,
+  pageProps,
+}: AppProps<PageSeoProps & any>) {
   const router = useRouter();
   const isPostItemPage = useMemo(
     () => router.asPath.includes("/post/"),
