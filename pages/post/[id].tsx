@@ -2,7 +2,6 @@ import PostItem from "@/components/page/post/PostItem";
 import withGetServerSideProps from "@/hocs/withGetServerSideProps";
 import { QUERY, scFetch } from "@/utils/sanityClient";
 import { GetServerSideProps, NextPage } from "next";
-import { useRouter } from "next/router";
 import { useEffect } from "react";
 
 /** 
@@ -46,7 +45,7 @@ const PostItemPage: NextPage<PostItemPageProps> = ({ postData }) => {
   }, [postData]);
   return (
     <div className={`${prefixCls}-wrapper`}>
-      <PostItem title={"title"} body={"body"} />
+      <PostItem title={"title"} body={postData.body} />
     </div>
   );
 };
