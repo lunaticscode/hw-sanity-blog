@@ -5,6 +5,7 @@ html[app-theme="light"] {
   --back-color: #{$appLightBackColor};
   --content-back-color: #{$appContentLightBackColor};
   --header-border-color: #{$appDarkHeaderBorderColor};
+  --post-devide-border-color: #{$appPostDevideBorderDarkColor};
 }
 
 html[app-theme="dark"] {
@@ -12,4 +13,5 @@ html[app-theme="dark"] {
   --back-color: #{$appDarkBackColor};
   --content-back-color: #{$appContentDarkBackColor};
   --header-border-color: #{$appLightHeaderBorderColor};
+  --post-devide-border-color: #{$appPostDevideBorderLightColor};
 }

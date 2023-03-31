@@ -27,6 +27,7 @@ const getLatestContentQuery = `
 const getPostListQuery = (page: number, devider: number = 10) => `
 *[_type == 'post'] | order(_createdAt desc) {
     title,
+    tags,
     _createdAt,
     _id,
     "mainImageUrl": mainImage.asset->url

@@ -1,8 +1,6 @@
-import { layoutStatusAtom } from "@/recoil/atoms";
-import { LayoutStatusAtomProps } from "@/_types/atomTypes";
+import { layoutStore } from "@/zustand/stores";
 import { useRouter } from "next/router";
 import { FC, ReactNode, useEffect, useMemo, useState } from "react";
-import { useRecoilValue } from "recoil";
 import AppHeader from "./AppHeader";
 import AppLoading from "./AppLoading";
 
@@ -21,7 +19,7 @@ const mainCls = {
 
 const AppLayout: FC<AppLayoutProps> = (props) => {
   const [isRouteLoading, setIsRouteLoading] = useState<boolean>(false);
-  const { theme } = useRecoilValue<LayoutStatusAtomProps>(layoutStatusAtom);
+  const theme = layoutStore((state) => state.theme);
   const { children } = props;
 
   const router = useRouter();
@@ -48,7 +46,7 @@ const AppLayout: FC<AppLayoutProps> = (props) => {
 
   return (
     <div className={layoutWrapperCls}>
-      <AppHeader />
+      <AppHeader theme={theme} />
       <main className={mainCls.wrapper}>{children}</main>
       {isRouteLoading && <AppLoading />}
     </div>

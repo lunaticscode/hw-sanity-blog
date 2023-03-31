@@ -1,2 +1,34 @@
+/** 
+    layout: `wrapper`,
+    buttonsWrapper: `buttons-wrapper`,
+    pageButton: `page-button`,
+*/
 .#{$paginatorLayoutCls}-wrapper {
+  display: block;
+  text-align: center;
+  > button {
+    margin: 0px 10px;
+    border: none;
+    // background-color: ;
+    background-color: black;
+    color: white;
+    padding: 3px 5px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  .#{$paginatorLayoutCls}-buttons-wrapper {
+    display: flex;
+  }
+  .#{$paginatorLayoutCls}-page-button {
+    display: inline-block;
+    margin: 0px 5px;
+    cursor: pointer;
+    &:hover {
+      opacity: 0.6;
+    }
+    &.active {
+      font-weight: bold;
+      opacity: 1 !important;
+    }
+  }
 }

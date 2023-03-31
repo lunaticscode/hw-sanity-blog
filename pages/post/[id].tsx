@@ -38,15 +38,12 @@ interface PostItemPageProps {
   postData: any;
 }
 const PostItemPage: NextPage<PostItemPageProps> = ({ postData }) => {
-  // const router = useRouter();
-  // const { id: postId } = router.query;
-  useEffect(() => {
-    console.log(postData);
-  }, [postData]);
-  return (
+  return postData ? (
     <div className={`${prefixCls}-wrapper`}>
       <PostItem title={"title"} body={postData.body} />
     </div>
+  ) : (
+    <div>NotFound</div>
   );
 };
 

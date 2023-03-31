@@ -14,7 +14,8 @@ const wrapperCls = (type: string) => {
 interface PaginatorProps {
   onClickNext: () => void;
   onClickPrev: () => void;
-  onClickPage: (page: number) => void;
+  // onClickPage: (page: number) => void;
+  onClickPageNumber: (page: number) => void;
   nowPageNumber: number;
   isFirstPage: boolean;
   isLastPage: boolean;
@@ -23,7 +24,7 @@ interface PaginatorProps {
 const Paginator: FC<PaginatorProps> = (props) => {
   const {
     onClickPrev,
-    onClickPage,
+    onClickPageNumber,
     onClickNext,
     nowPageNumber,
     isFirstPage,
@@ -40,13 +41,13 @@ const Paginator: FC<PaginatorProps> = (props) => {
   const handleClickPage = useCallback(
     (_page: number) => {
       if (nowPageNumber === _page) return;
-      onClickPage(_page);
+      onClickPageNumber(_page);
     },
-    [nowPageNumber, onClickPage]
+    [nowPageNumber, onClickPageNumber]
   );
 
   return pages.length ? (
-    <>
+    <div className={wrapperCls("layout")}>
       <button disabled={isFirstPage} onClick={onClickPrev}>
         prev
       </button>
@@ -64,7 +65,7 @@ const Paginator: FC<PaginatorProps> = (props) => {
       <button disabled={isLastPage} onClick={onClickNext}>
         next
       </button>
-    </>
+    </div>
   ) : null;
 };
 export default Paginator;

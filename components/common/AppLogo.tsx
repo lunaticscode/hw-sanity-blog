@@ -2,16 +2,15 @@ import { FC } from "react";
 import Image from "next/image";
 import AppLightLogoImg from "../../public/hw-blog-logo.png";
 import AppDarkLogoImg from "../../public/hw-blog-logo-white.png";
-import { useRecoilValue } from "recoil";
-import { layoutStatusAtom } from "@/recoil/atoms";
-import { LayoutStatusAtomProps } from "@/_types/atomTypes";
 import { useRouter } from "next/router";
+interface AppLogoProps {
+  theme: string;
+}
 const logoCls = {
   wrapper: "app-logo-wrapper",
 };
-const AppLogo: FC = () => {
+const AppLogo: FC<AppLogoProps> = ({ theme }) => {
   const router = useRouter();
-  const { theme } = useRecoilValue<LayoutStatusAtomProps>(layoutStatusAtom);
   const handleClickLogo = () => {
     router.push("/post");
   };
