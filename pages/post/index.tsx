@@ -21,6 +21,7 @@ interface PostIndexPageProps {
   postListCnt: number;
   postList: Array<PostItemProps>;
 }
+
 const DEFAULT_PAGE_DEVIDER = 5; //* TODO:: width 기준으로 5 <-> 10 <-> 15
 const PostIndexPage: NextPage<PostIndexPageProps> = (props) => {
   const { postList: initPostList, postListCnt: initPostListCnt } = props;

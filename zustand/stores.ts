@@ -5,14 +5,14 @@ interface LayoutStoreProps {
   selectedNavMenu: string;
   theme: string;
   setTheme: (theme: string) => void;
-  setSelectedMenu: (menu: string) => void;
+  setSelectedNavMenu: (menu: string) => void;
 }
 export const layoutStore = create(
   persist<LayoutStoreProps>(
     (set) => ({
       selectedNavMenu: "",
       theme: "light",
-      setSelectedMenu: (selectedNavMenu: string) =>
+      setSelectedNavMenu: (selectedNavMenu: string) =>
         set((state) => ({ ...state, selectedNavMenu })),
       setTheme: (theme: string) => set((state) => ({ ...state, theme })),
     }),

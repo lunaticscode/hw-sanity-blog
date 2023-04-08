@@ -18,15 +18,15 @@
     text-align: center;
     & > img {
       width: 90%;
-      min-height: 110px;
+      min-height: 100px;
     }
   }
   .#{$postListItemCls}-content-wrapper {
     align-items: center;
   }
   .#{$postListItemCls}-title-wrapper {
-    font-size: 22px;
-    height: 70px;
+    font-size: 20px;
+    height: 60px;
     width: 100%;
     font-weight: bold;
     &:hover {

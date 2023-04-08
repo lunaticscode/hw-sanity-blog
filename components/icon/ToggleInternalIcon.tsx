@@ -11,7 +11,8 @@ const ToggleInternalIcon: FC<ToggleInternalIconProps> = ({ isDark }) => {
         fill="none"
         viewBox="0 0 24 24"
         strokeWidth={1.5}
-        stroke="white"
+        // stroke="white"
+        // stroke="rgb(43, 191, 227)"
         className="w-6 h-6"
         width={15}
         style={{ marginTop: "-2px" }}
@@ -29,7 +30,7 @@ const ToggleInternalIcon: FC<ToggleInternalIconProps> = ({ isDark }) => {
       fill="none"
       viewBox="0 0 24 24"
       strokeWidth={2}
-      stroke="currentColor"
+      stroke="black"
       className="w-6 h-6"
       width={15}
       style={{ marginTop: "-2px" }}

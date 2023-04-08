@@ -1,8 +1,7 @@
-import PostItem from "@/components/page/post/PostItem";
+import PostBody from "@/components/page/post/PostBody";
 import withGetServerSideProps from "@/hocs/withGetServerSideProps";
 import { QUERY, scFetch } from "@/utils/sanityClient";
 import { GetServerSideProps, NextPage } from "next";
-import { useEffect } from "react";
 
 /** 
  * postData
@@ -38,12 +37,16 @@ interface PostItemPageProps {
   postData: any;
 }
 const PostItemPage: NextPage<PostItemPageProps> = ({ postData }) => {
-  return postData ? (
-    <div className={`${prefixCls}-wrapper`}>
-      <PostItem title={"title"} body={postData.body} />
-    </div>
-  ) : (
-    <div>NotFound</div>
+  return (
+    postData && (
+      <div className={`${prefixCls}-wrapper`}>
+        <PostBody
+          title={postData.title || ""}
+          body={postData.body}
+          createdAt={postData._createdAt}
+        />
+      </div>
+    )
   );
 };
 
@@ -56,16 +59,29 @@ export const getServerSideProps: GetServerSideProps = withGetServerSideProps(
     let postTitle = "(404 NotFound)";
     let resultPostData = null;
     if (postId) {
-      const [postData] = await scFetch(QUERY.GET_CONTENT_BY_ID(postId));
-      postTitle = postData.title;
-      resultPostData = postData;
+      const result = await scFetch(QUERY.GET_CONTENT_BY_ID(postId));
+      const postData = result[0];
+      resultPostData = postData || null;
+      if (resultPostData) {
+        postTitle = resultPostData.title;
+      }
+    }
+    const pagePropsData = {
+      seoTitle: postTitle,
+      seoDesc: "post-desc",
+      postData: resultPostData,
+    };
+    if (!resultPostData) {
+      return {
+        props: pagePropsData,
+        redirect: {
+          permanent: false,
+          destination: "/404",
+        },
+      };
     }
     return {
-      props: {
-        seoTitle: `post > ${postTitle}`,
-        seoDesc: "post-desc",
-        postData: resultPostData,
-      },
+      props: pagePropsData,
     };
   }
 );

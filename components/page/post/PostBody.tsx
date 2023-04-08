@@ -23,17 +23,25 @@ export interface PostItemProps {
   title?: string;
   body?: Array<any>;
   tags?: Array<string>;
+  createdAt?: string;
 }
 
 const components = {
   types: {
     code: (props: any) => {
-      return <PostCodeBox code={props.value.code} language={props.language} />;
+      return (
+        <div style={{ margin: "20px 0px" }}>
+          <PostCodeBox code={props.value.code} language={props.language} />
+        </div>
+      );
     },
     image: (props: any) => {
       return (
-        <div style={{ textAlign: "center" }}>
-          <img src={imgUrlBuilder.image(props.value).url()} />
+        <div style={{ textAlign: "center", margin: "10px 0px" }}>
+          <img
+            style={{ maxWidth: "70%", maxHeight: "400px" }}
+            src={imgUrlBuilder.image(props.value).url()}
+          />
         </div>
       );
     },
@@ -44,12 +52,15 @@ const setTags = (tags: PostItemProps["tags"]) => {
   return <></>;
 };
 
-const PostItem: FC<PostItemProps> = (props) => {
-  const { title, body, tags } = props;
+const PostBody: FC<PostItemProps> = (props) => {
+  const { title, body, tags, createdAt } = props;
+  console.log(props);
   return (
     <div className={wrapperCls("layout")}>
       <article className={wrapperCls("article")}>
-        <section className={wrapperCls("title")}>{title}</section>
+        <section className={wrapperCls("title")}>
+          <h2>{title}</h2>
+        </section>
         <section className={wrapperCls("body")}>
           <PortableText value={body} components={components} />
         </section>
@@ -60,4 +71,4 @@ const PostItem: FC<PostItemProps> = (props) => {
     </div>
   );
 };
-export default PostItem;
+export default PostBody;

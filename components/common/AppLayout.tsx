@@ -1,6 +1,13 @@
 import { layoutStore } from "@/zustand/stores";
 import { useRouter } from "next/router";
-import { FC, ReactNode, useEffect, useMemo, useState } from "react";
+import {
+  FC,
+  ReactNode,
+  useCallback,
+  useEffect,
+  useMemo,
+  useState,
+} from "react";
 import AppHeader from "./AppHeader";
 import AppLoading from "./AppLoading";
 
@@ -17,14 +24,15 @@ const mainCls = {
   wrapper: `${mainClsPrefix}-wrapper`,
 };
 
-const AppLayout: FC<AppLayoutProps> = (props) => {
+const AppLayout: FC<AppLayoutProps> = ({ children }) => {
   const [isRouteLoading, setIsRouteLoading] = useState<boolean>(false);
   const theme = layoutStore((state) => state.theme);
-  const { children } = props;
-
   const router = useRouter();
-  const handleRouterChangeStart = () => setIsRouteLoading(true);
-  const handleRouterChangeEnd = () => setIsRouteLoading(false);
+  const handleRouterChangeStart = useCallback(
+    () => setIsRouteLoading(true),
+    []
+  );
+  const handleRouterChangeEnd = useCallback(() => setIsRouteLoading(false), []);
 
   useEffect(() => {
     router.events.on("routeChangeStart", handleRouterChangeStart);

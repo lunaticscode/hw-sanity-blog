@@ -4,7 +4,7 @@ import { FC, useMemo } from "react";
 
 const META_CONTENT = {
   url: process.env.NEXT_PUBLIC_APP_URL,
-  title: "hwblog",
+  title: "<HW/>",
   type: "website",
 };
 
@@ -18,11 +18,14 @@ const AppHead: FC<SeoProps> = ({ seoTitle, seoDesc, seoKeywords }) => {
   const urlPath = useMemo(() => router.asPath, [router.asPath]);
   return (
     <Head>
-      <title>{`${META_CONTENT.title}-${seoTitle}`}</title>
-      <meta name="title" content={`${META_CONTENT.title}-${seoTitle}`} />
+      <title>{`${META_CONTENT.title} ${seoTitle}`}</title>
+      <meta name="title" content={`${seoTitle}`} />
       <meta name="description" content={seoDesc} />
       <meta name="keywords" content={seoKeywords?.join(", ")} />
-      <meta property="og:title" content={`${META_CONTENT.title}-${seoTitle}`} />
+      <meta
+        property="og:title"
+        content={`${META_CONTENT.title} > ${seoTitle}`}
+      />
       <meta property="og:description" content={seoDesc} />
       <meta property="og:url" content={`${META_CONTENT.url}${urlPath}`} />
       <meta property="og:site_name" content={META_CONTENT.title} />

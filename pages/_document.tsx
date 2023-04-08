@@ -11,12 +11,12 @@ const META_DATA: Record<
     keywords: [],
   },
   "/post": {
-    title: "POST",
+    title: "Post",
     desc: "hw-blog's Post list page",
     keywords: [],
   },
   "/profile": {
-    title: "PROFILE",
+    title: "Profile",
     desc: "hw-blog's owner profile page",
     keywords: [],
   },
@@ -45,10 +45,12 @@ const Document: NextPage<DocumentProps> = (props) => {
   return (
     <Html>
       <Head>
+        {/* eslint-disable-next-line @next/next/no-title-in-document-head */}
+        <title>{`<HW/> ${title}`}</title>
         {isPostItemPage ? null : (
           <>
-            <meta name="title" content={`hwblog ${title}`} />
-            <meta name="description" content={`hwblog ${desc}`} />
+            <meta name="title" content={`<HW/> ${title}`} />
+            <meta name="description" content={`${desc}`} />
             <meta name="keywords" content={keywords.join(", ")} />
           </>
         )}

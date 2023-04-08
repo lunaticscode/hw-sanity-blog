@@ -1,18 +1,18 @@
 .#{$appMainCls}-wrapper {
   padding: 15px;
   background-color: var(--content-back-color);
-  @media screen and (max-width: 400px) {
+  @media screen and (max-width: 650px) {
     width: 100%;
   }
-  @media screen and (min-width: 401px) and (max-width: 600px) {
-    width: 80%;
-    margin-left: 10%;
+  @media screen and (min-width: 651px) and (max-width: 900px) {
+    width: 85%;
+    margin-left: 7.5%;
   }
-  @media screen and (min-width: 601px) {
+  @media screen and (min-width: 901px) {
     width: 70%;
     margin-left: 15%;
   }
   margin-top: 60px;
   width: 100%;
-  height: calc(100vh - 60px);
+  min-height: calc(100vh - 60px);
 }

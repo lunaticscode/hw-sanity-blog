@@ -1,7 +1,7 @@
 import { FC } from "react";
 import Image from "next/image";
 import AppLightLogoImg from "../../public/hw-blog-logo.png";
-import AppDarkLogoImg from "../../public/hw-blog-logo-white.png";
+import AppDarkLogoImg from "../../public/hw-blog-logo-dark.png";
 import { useRouter } from "next/router";
 interface AppLogoProps {
   theme: string;
