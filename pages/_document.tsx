@@ -60,6 +60,7 @@ const Document: NextPage<DocumentProps> = (props) => {
           <>
             <meta name="title" content={`<HW/> ${title}`} />
             <meta name="description" content={`${desc}`} />
+            <meta name="og:description" content={`${desc}`} />
             <meta name="keywords" content={keywords.join(", ")} />
           </>
         )}
