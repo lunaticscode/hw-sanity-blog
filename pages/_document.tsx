@@ -1,6 +1,6 @@
 import { NextPage } from "next";
 import { Html, Head, Main, NextScript, DocumentProps } from "next/document";
-type Pages = "/404" | "/post" | "/_error" | "/profile" | "none";
+type Pages = "/" | "/404" | "/post" | "/_error" | "/profile" | "none";
 const META_DATA: Record<
   Pages,
   { title: string; desc: string; keywords: Array<string> }
@@ -30,6 +30,11 @@ const META_DATA: Record<
     desc: "humanwater's blog",
     keywords: ["web developer", "humanwater", "dev blog"],
   },
+  "/": {
+    title: "Post",
+    desc: "hw-blog's Post list page",
+    keywords: [],
+  },
 };
 
 const Document: NextPage<DocumentProps> = (props) => {
@@ -41,7 +46,11 @@ const Document: NextPage<DocumentProps> = (props) => {
   const isPostItemPage = nowPath === "/post/[id]";
   const seoPath = isValidPage ? nowRootPath : "none";
 
-  const { title, desc, keywords } = META_DATA[seoPath as Pages];
+  const {
+    title = "",
+    desc = "",
+    keywords = [""],
+  } = META_DATA[seoPath as Pages];
   return (
     <Html>
       <Head>
