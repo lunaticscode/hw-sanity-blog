@@ -16,9 +16,12 @@
   .#{$postListItemCls}-image-wrapper {
     display: flex;
     text-align: center;
+    align-items: center;
     & > img {
-      width: 90%;
-      min-height: 100px;
+      margin-left: 10%;
+      width: 80%;
+      height: 100%;
+      max-height: 70px;
     }
   }
   .#{$postListItemCls}-content-wrapper {
@@ -26,7 +29,7 @@
   }
   .#{$postListItemCls}-title-wrapper {
     font-size: 18px;
-    height: 60px;
+    height: 40px;
     width: 100%;
     font-weight: bold;
     text-overflow: ellipsis;
@@ -42,23 +45,35 @@
     font-size: 13px;
   }
   .#{$postListItemCls}-tags-wrapper {
-    display: flex;
     justify-content: right;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    width: 100%;
+    text-align: right;
   }
   .#{$postListItemCls}-tag-item-wrapper {
+    display: inline;
     margin-left: 5px;
     font-weight: 300;
     font-size: 15px;
   }
   @media screen and (max-width: 650px) {
+    grid-template-columns: 110px calc(100% - 110px);
     .#{$postListItemCls}-title-wrapper {
       font-size: 15px;
     }
     .#{$postListItemCls}-tag-item-wrapper {
-      font-size: 12px;
+      font-size: 11px;
     }
     .#{$postListItemCls}-date-wrapper {
-      font-size: 11px;
+      font-size: 10px;
+    }
+  }
+  @media screen and (max-width: 400px) {
+    grid-template-columns: 80px calc(100% - 80px);
+    .#{$postListItemCls}-title-wrapper {
+      font-size: 14px;
     }
   }
 }
