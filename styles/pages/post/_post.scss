@@ -14,15 +14,30 @@
 }
 .#{$postItemCls}-article-body-wrapper {
   blockquote {
-    font-style: italic;
+    // font-style: italic;
+    font-weight: bold;
     background-color: rgba(158, 158, 158, 0.242);
     display: inline-block;
     padding: 5px 8px;
     margin: 5px 0px;
     margin-top: 50px;
+    font-size: 16px;
     &:first-of-type {
       margin-top: 20px;
     }
+    &:before {
+      content: "";
+      display: inline-block;
+      width: 5px;
+      height: 13px;
+      margin-right: 6px;
+      vertical-align: baseline;
+      background-color: $appLightHeaderBorderColor;
+    }
+  }
+  a {
+    // color: var(--header-border-color);
+    color: $appLightHeaderBorderColor;
   }
   p {
     margin: 5px 0px;
