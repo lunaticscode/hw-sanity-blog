@@ -4,7 +4,6 @@
   width: 100%;
 }
 .#{$postItemCls}-article-title-wrapper {
-  // padding-top: px;
   padding-bottom: 8px;
   border-bottom: 0.5px solid var(--header-border-color);
   margin-bottom: 15px;
@@ -36,17 +35,21 @@
     }
   }
   a {
-    // color: var(--header-border-color);
     color: $appLightHeaderBorderColor;
+    font-size: 14px;
+    font-weight: bold;
   }
   p {
-    margin: 5px 0px;
-    font-size: 14px;
+    margin-top: 8px;
+    font-size: 16px;
   }
   ul {
     margin-left: 20px;
     padding: 5px 0px;
     font-size: 14px;
+    & > li::marker {
+      color: $appLightHeaderBorderColor;
+    }
   }
   h3 {
     margin: 25px 0px;
