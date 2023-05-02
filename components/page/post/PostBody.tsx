@@ -3,6 +3,8 @@ import { PortableText } from "@portabletext/react";
 import Image from "next/image";
 import { santiyClient } from "@/utils/sanityClient";
 import PostCodeBox from "./CodeBox";
+import Zoom from "react-medium-image-zoom";
+import "react-medium-image-zoom/dist/styles.css";
 
 import imageUrlBuilder from "@sanity/image-url";
 const imgUrlBuilder = imageUrlBuilder(santiyClient);
@@ -38,10 +40,12 @@ const components = {
     image: (props: any) => {
       return (
         <div style={{ textAlign: "center", margin: "10px 0px" }}>
-          <img
-            style={{ maxWidth: "70%", maxHeight: "400px" }}
-            src={imgUrlBuilder.image(props.value).url()}
-          />
+          <Zoom>
+            <img
+              style={{ maxWidth: "70%", maxHeight: "400px" }}
+              src={imgUrlBuilder.image(props.value).url()}
+            />
+          </Zoom>
         </div>
       );
     },

@@ -132,3 +132,8 @@ pre[class*="language-"] {
 .token.entity {
   cursor: help;
 }
+
+div[data-rmiz-modal-overlay="visible"] {
+  background-color: "black" !important;
+  opacity: 0.5 !important;
+}

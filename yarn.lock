@@ -2217,6 +2217,11 @@ react-is@^16.13.1:
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-16.13.1.tgz#789729a4dc36de2999dc156dd6c1d9c18cea56a4"
   integrity sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ==
 
+react-medium-image-zoom@^5.1.5:
+  version "5.1.5"
+  resolved "https://registry.yarnpkg.com/react-medium-image-zoom/-/react-medium-image-zoom-5.1.5.tgz#550145e04f2635449c7abddd57ddf374f01c1d33"
+  integrity sha512-dxqunC1xsaQZV48FM95I7QX+2wuMgOloYAHVw9034S09UGJ66JQgohG9bgkrfKU0cl3b34HCJeswy4RDIOcSiw==
+
 react-refractor@^2.1.7:
   version "2.1.7"
   resolved "https://registry.yarnpkg.com/react-refractor/-/react-refractor-2.1.7.tgz#a7752bb774abed2735e37945aa211a1e1059b976"
